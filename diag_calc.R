@@ -9,174 +9,258 @@ nearnormal = function(n, mean = 0, sd = 1) {
 
 ### --- Accuracy vs. Effect
 
-col_names = c(
-    "d_case1_vs_case2",
-    "mean_1",
-    "mean_2",
-    "d_1",
-    "d_2",
-    "d_increase",
-    "accuracy_1",
-    "accuracy_2",
-    "accuracy_increase",
-    "AUC_1",
-    "AUC_2",
-    "AUC_increase"
-)
-results_table = data.frame(matrix(NA , nrow = 0, ncol = length(col_names)))
-colnames(results_table) = col_names
-
-d_between_guilties = seq(0.0, 1.2, by = 0.05)
-d_case_control = seq(0.5, 2.5, by = 0.5) # c( 0.6, 1.0, 1.4, 1.8, 2.0 )
-sd_g = 1 # 33.6
-sd_i = 1 # 23.5
-
-N = 500 # 15000 for high precision; much higher number may result in error
-
-for (d_gi0 in d_case_control) {
-    for (d_gg0 in d_between_guilties) {
-        # dd_gi0 =  mg1 / ( ( (sd_g**2 + sd_i**2)/2  ) **0.5 )
-        mg1 = d_gi0 * (((sd_g ** 2 + sd_i ** 2) / 2) ** 0.5)
-        # d_gg =  (mg2 - mg1) / ( ( (sd_g**2 + sd_i**2)/2  ) **0.5 )
-        mg2 = d_gg0 * (((sd_g ** 2 + sd_g ** 2) / 2) ** 0.5) + mg1
-        
-        case1 = nearnormal(n = N,
-                                 mean = mg1,
-                                 sd = sd_g)
-        case2 = nearnormal(n = N,
-                                 mean = mg2,
-                                 sd = sd_g)
-        control1 = nearnormal(n = N,
-                                   mean = 0,
-                                   sd = sd_i)
-        control2 = nearnormal(n = N,
-                                   mean = 0,
-                                   sd = sd_i)
-        
-        gi1 = t_neat(
-            case1,
-            control1,
-            auc_added = T,
-            bf_added = F,
-            hush = T
-        )
-        gi2 = t_neat(
-            case2,
-            control2,
-            auc_added = T,
-            bf_added = F,
-            hush = T
-        )
-        
-        d_gi1 = gi1$stats["d"]
-        d_gi2 = gi2$stats["d"]
-        auc1 = gi1$stats["auc"]
-        auc2 = gi2$stats["auc"]
-        acc1 = gi1$stats["accuracy"]
-        acc2 = gi2$stats["accuracy"]
-        
-        d_gg = t_neat(case2,
-                      case1,
-                      bf_added = F,
-                      hush = T)$stats["d"]
-        
-        results_table[nrow(results_table) + 1, ] = c(d_gg,
-                                                     mg1,
-                                                     mg2,
-                                                     d_gi1,
-                                                     d_gi2,
-                                                     d_gi2 - d_gi1,
-                                                     auc1,
-                                                     auc2,
-                                                     auc2 - auc1,
-                                                     acc1,
-                                                     acc2,
-                                                     acc2 - acc1)
+prep_sim = function(gg_start = 0.0,
+                    gg_end = 1.2,
+                    gg_step = 0.05,
+                    gi1_start = 0.5,
+                    gi1_end = 2.5,
+                    gi1_step = 0.5,
+                    # c( 0.6, 1.0, 1.4, 1.8, 2.0 )
+                    sd_g = 1,
+                    # 33.6
+                    sd_i = 1,
+                    # 23.5
+                    N = 500) {
+    # 15000 for high precision; much higher number may result in error
+    
+    d_between_guilties = seq(gg_start, gg_end, by = gg_step)
+    d_case_control = seq(gi1_start, gi1_end, by = gi1_step)
+    col_names = c(
+        "d_case1_vs_case2",
+        "mean_1",
+        "mean_2",
+        "d_1",
+        "d_2",
+        "d_gain",
+        "accuracy_1",
+        "accuracy_2",
+        "accuracy_gain",
+        "AUC_1",
+        "AUC_2",
+        "AUC_gain"
+    )
+    results_table = data.frame(matrix(NA , nrow = 0, ncol = length(col_names)))
+    colnames(results_table) = col_names
+    
+    for (d_gi0 in d_case_control) {
+        for (d_gg0 in d_between_guilties) {
+            # dd_gi0 =  mg1 / ( ( (sd_g**2 + sd_i**2)/2  ) **0.5 )
+            mg1 = d_gi0 * (((sd_g ** 2 + sd_i ** 2) / 2) ** 0.5)
+            # d_gg =  (mg2 - mg1) / ( ( (sd_g**2 + sd_i**2)/2  ) **0.5 )
+            mg2 = d_gg0 * (((sd_g ** 2 + sd_g ** 2) / 2) ** 0.5) + mg1
+            
+            case1 = nearnormal(n = N,
+                               mean = mg1,
+                               sd = sd_g)
+            case2 = nearnormal(n = N,
+                               mean = mg2,
+                               sd = sd_g)
+            control1 = nearnormal(n = N,
+                                  mean = 0,
+                                  sd = sd_i)
+            control2 = nearnormal(n = N,
+                                  mean = 0,
+                                  sd = sd_i)
+            
+            gi1 = t_neat(
+                case1,
+                control1,
+                auc_added = T,
+                bf_added = F,
+                hush = T
+            )
+            gi2 = t_neat(
+                case2,
+                control2,
+                auc_added = T,
+                bf_added = F,
+                hush = T
+            )
+            
+            d_gi1 = gi1$stats["d"]
+            d_gi2 = gi2$stats["d"]
+            auc1 = gi1$stats["auc"]
+            auc2 = gi2$stats["auc"]
+            acc1 = gi1$stats["accuracy"]
+            acc2 = gi2$stats["accuracy"]
+            
+            d_gg = t_neat(case2,
+                          case1,
+                          bf_added = F,
+                          hush = T)$stats["d"]
+            
+            results_table[nrow(results_table) + 1,] = c(
+                d_gg,
+                mg1,
+                mg2,
+                d_gi1,
+                d_gi2,
+                d_gi2 - d_gi1,
+                auc1,
+                auc2,
+                auc2 - auc1,
+                acc1,
+                acc2,
+                acc2 - acc1
+            )
+        }
     }
+    return(results_table)
 }
 
+res_tab = prep_sim()
 
-theplot = ggplot(data = results_table, aes(
-    x = d_case1_vs_case2,
-    group = accuracy_1,
-    color = as.factor(accuracy_1)
-)) +
-    geom_hline(
-        yintercept = seq(0.5, 1.0, by = 0.05),
-        colour = "#e6e6e6",
-        size = 0.5
-    ) +
-    geom_line(size = 0.7,
-              aes(
-                  y = accuracy_2,
-                  text = paste0(
-                      "Single-case effect size: ",
-                      ro(d_case1_vs_case2, 3),
-                      "\nBase accuracy: ",
-                      ro(accuracy_1, 3, leading_zero = FALSE),
-                      "\nNew accuracy: ",
-                      ro(accuracy_2, 3, leading_zero = FALSE),
-                      "\nIncrease in accuracy: ",
-                      ro(accuracy_increase, 3, leading_zero = FALSE)
-                  )
-              ), 
-              linetype = "dashed") +
-    geom_line(size = 0.7,
-              aes(y = accuracy_increase - 0.1 + round(min(
-                  results_table$accuracy_1
-              ), 1),
-              text = paste0(
-                  "Single-case effect size: ",
-                  ro(d_case1_vs_case2, 3),
-                  "\nBase accuracy: ",
-                  ro(accuracy_1, 3, leading_zero = FALSE),
-                  "\nIncrease in accuracy: ",
-                  ro(accuracy_increase, 3, leading_zero = FALSE)
-              )),
-              linetype = "solid") +
-    scale_color_grey(
-        start = 0.7,
-        end = 0.0,
-        name = 'd: "case 1" vs. "control"',
-        label = ro(levels(as.factor(results_table$d_1)), 1)
-    ) +
-    scale_y_continuous(
-        breaks = round(seq(0.6, 1.0, by = 0.05), 2),
-        sec.axis = sec_axis(
-            ~ . + 0.1 - round(min(results_table$accuracy_1), 1),
-            name = "Accuracy gain (solid lines)\n",
-            breaks = round(seq(
-                min(results_table$accuracy_increase),
-                max(results_table$accuracy_increase),
-                by = 0.05
-            ), 2)
-        )
-    ) +
+
+results_to_plot = res_tab
+ylabel_total = 'Accuracy: "case 2" vs. "control"\n'
+ylabel_gain = 'Accuracy gain\n'
+xlabel_all = '\nEffect size: "case 1" vs. "case 2"'
+legend_titl = 'Initial effect size: "case 1" vs. "control"'
+legend_var = 'd_1' # alternatives: 'acc_1' or 'auc_1'
+results_to_plot$yvals_1 = results_to_plot$accuracy_1 # alterntive: AUC_1
+results_to_plot$yvals_2 = results_to_plot$accuracy_2 # alterntive: AUC_2
+results_to_plot$yvals_gain = results_to_plot$accuracy_gain # alterntive: AUC_gain
+
+theplot = ggplot(data = results_to_plot,
+                 aes(
+                     x = d_case1_vs_case2,
+                     group = yvals_1,
+                     color = as.factor(yvals_1)
+                 )) +
     theme_bw() +
     theme(
         text = element_text(family = "serif"),
-        legend.position = "right",
         panel.grid.minor = element_blank(),
         panel.grid.major = element_line(colour = "#e6e6e6", size = 0.5)
     ) +
-    xlab('\nd: "case 1" vs. "case 2"') + ylab('Accuracy: "case 2" vs. "control" (dashed lines)\n')
+    xlab(xlabel_all) +
+    scale_color_grey(
+        start = 0.7,
+        end = 0.0,
+        name = legend_titl,
+        label = ro(levels(as.factor(
+            results_to_plot[[legend_var]]
+        )), 1)
+    )
 
-plotly::config(
-    plotly::ggplotly(theplot, tooltip = "text"),
-    displaylogo = FALSE,
-    modeBarButtonsToRemove = list(
-        'autoScale2d',
-        'pan2d',
-        'zoom2d',
-        'zoomIn2d',
-        'zoomOut2d'
+
+hlines_comb = geom_hline(
+    yintercept = seq(0.5, 1.0, by = 0.05),
+    colour = "#e6e6e6",
+    size = 0.5
+)
+
+hlines_tot = geom_hline(
+    yintercept = seq(
+        ceiling(min(results_to_plot$yvals_2) * 10) / 10,
+        max(results_to_plot$yvals_2),
+        by = 0.05
+    ),
+    colour = "#e6e6e6",
+    size = 0.5
+)
+
+hlines_gain = geom_hline(
+    yintercept = seq(0.05, max(results_to_plot$yvals_gain), by = 0.05),
+    colour = "#e6e6e6",
+    size = 0.5
+)
+
+acc_tot_base = aes(
+    y = yvals_2,
+    text = paste0(
+        "Single-case effect size: ",
+        ro(d_case1_vs_case2, 3),
+        "\nInitial accuracy: ",
+        ro(yvals_1, 3, leading_zero = FALSE),
+        "\nNew accuracy: ",
+        ro(yvals_2, 3, leading_zero = FALSE),
+        "\nAccuracy gain: ",
+        ro(yvals_gain, 3, leading_zero = FALSE)
+    )
+)
+acc_total_separate =  geom_line(size = 0.7, acc_tot_base,
+                                linetype = "solid")
+acc_total_combined =  geom_line(size = 0.7, acc_tot_base,
+                                linetype = "dashed")
+acc_gain_combined = geom_line(
+    size = 0.7,
+    aes(
+        y = yvals_gain - 0.1 + round(min(results_to_plot$yvals_1), 1),
+        text = paste0(
+            "Single-case effect size: ",
+            ro(d_case1_vs_case2, 3),
+            "\nInitial accuracy: ",
+            ro(yvals_1, 3, leading_zero = FALSE),
+            "\nAccuracy gain: ",
+            ro(yvals_gain, 3, leading_zero = FALSE)
+        )
+    ),
+    linetype = "solid"
+)
+acc_gain_separate = geom_line(
+    size = 0.7,
+    aes(
+        y = yvals_gain,
+        text = paste0(
+            "Single-case effect size: ",
+            ro(d_case1_vs_case2, 3),
+            "\nInitial accuracy: ",
+            ro(yvals_1, 3, leading_zero = FALSE),
+            "\nNew accuracy: ",
+            ro(yvals_2, 3, leading_zero = FALSE),
+            "\nAccuracy gain: ",
+            ro(yvals_gain, 3, leading_zero = FALSE)
+        )
+    ),
+    linetype = "solid"
+)
+acc_gain_scale = scale_y_continuous(
+    breaks = round(seq(0.6, 1.0, by = 0.05), 2),
+    sec.axis = sec_axis(
+        ~ . + 0.1 - round(min(results_to_plot$yvals_1), 1),
+        name = ylabel_gain,
+        breaks = round(seq(
+            min(results_to_plot$yvals_gain),
+            max(results_to_plot$yvals_gain),
+            by = 0.05
+        ), 2)
     )
 )
 
 
+plot_comb = theplot + hlines_comb + acc_total_combined + acc_gain_combined + acc_gain_scale + ylab(ylabel_total) + theme(legend.position = "bottom", legend.title=element_text(face = 'italic'))  +
+    guides(color = guide_legend(title.position="top"))
+plot_total = theplot + hlines_tot + acc_total_separate  + ylab(ylabel_total) + theme(legend.position = "none")
+plot_gain = theplot + hlines_gain + acc_gain_separate + ylab(ylabel_gain) + theme(legend.position = "none")
+
+plot_comb
+plotly::config(
+    plotly::ggplotly(plot_total, tooltip = "text"),
+    displaylogo = FALSE,
+    modeBarButtonsToRemove = list('autoScale2d',
+                                  'pan2d',
+                                  'zoom2d',
+                                  'zoomIn2d',
+                                  'zoomOut2d')
+)
+plotly::config(
+    plotly::ggplotly(plot_gain, tooltip = "text"),
+    displaylogo = FALSE,
+    modeBarButtonsToRemove = list('autoScale2d',
+                                  'pan2d',
+                                  'zoom2d',
+                                  'zoomIn2d',
+                                  'zoomOut2d')
+)
 
 
+prep_plot = function(results_to_plot) {
+    
+}
+prep_plot(res_tab)
 
 #+ facet_wrap(~ Place, ncol = 3)
 
 #roc_neat( gi1$roc_obj, gi2$roc_obj )
+
