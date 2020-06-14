@@ -1,7 +1,8 @@
 library("shiny")
-library("neatStats")
+library("shinythemes")
 library("ggplot2")
 library("plotly")
+library("neatStats")
 
 nearnormal = function(n, mean = 0, sd = 1) {
     stats::qnorm(seq(1 / n, 1 - 1 / n, length.out = n), mean, sd)
@@ -77,7 +78,7 @@ prep_sim = function(gg_start,
                           case1,
                           bf_added = F,
                           hush = T)$stats["d"]
-            results_table[nrow(results_table) + 1, ] = c(
+            results_table[nrow(results_table) + 1,] = c(
                 d_gg,
                 mg1,
                 mg2,
@@ -126,11 +127,9 @@ prep_plot = function(results_to_plot,
                          color = as.factor(yvals_1)
                      )) + theme_bw() +
         theme(
-            text = element_text(family = "serif"),
             panel.grid.minor = element_blank(),
             panel.grid.major = element_line(colour = "#e6e6e6", size = 0.5)
         ) +
-        xlab(xlabel_all) +
         scale_color_grey(
             start = 0.7,
             end = 0.0,
@@ -161,7 +160,7 @@ prep_plot = function(results_to_plot,
     acc_tot_base = aes(
         y = yvals_2,
         text = paste0(
-            'Effect size: "case 1" vs. "case 2": ',
+            'Effect size: ',
             ro(d_case1_vs_case2, 3),
             "\nInitial accuracy: ",
             ro(yvals_1, 3, leading_zero = FALSE),
@@ -180,7 +179,7 @@ prep_plot = function(results_to_plot,
         aes(
             y = yvals_gain - 0.1 + round(min(results_to_plot$yvals_1), 1),
             text = paste0(
-                'Effect size: "case 1" vs. "case 2": ',
+                'Effect size: ',
                 ro(d_case1_vs_case2, 3),
                 "\nInitial accuracy: ",
                 ro(yvals_1, 3, leading_zero = FALSE),
@@ -194,7 +193,7 @@ prep_plot = function(results_to_plot,
                                   aes(
                                       y = yvals_gain,
                                       text = paste0(
-                                          'Effect size: "case 1" vs. "case 2": ',
+                                          'Effect size: ',
                                           ro(d_case1_vs_case2, 3),
                                           "\nInitial accuracy: ",
                                           ro(yvals_1, 3, leading_zero = FALSE),
@@ -219,13 +218,19 @@ prep_plot = function(results_to_plot,
     )
     plot_comb = theplot + hlines_comb + acc_total_combined +
         acc_gain_combined + acc_gain_scale + ylab(ylabel_total) +
-        theme(legend.position = "bottom",
-              legend.title = element_text(face = 'italic'))  +
+        theme(
+            legend.position = "bottom",
+            legend.title = element_text(face = 'italic'),
+            text = element_text(family = "serif", size = 18)
+        )  + xlab(xlabel_all) +
         guides(color = guide_legend(title.position = "top"))
     plot_total = theplot + hlines_tot + acc_total_separate  +
-        ylab(ylabel_total) + theme(legend.position = "none")
-    plot_gain = theplot + hlines_gain + acc_gain_separate +
-        ylab(ylabel_gain) + theme(legend.position = "none")
+        ylab(ylabel_total) + xlab(FALSE) +
+        theme(legend.position = "none",
+              text = element_text(family = "serif", size = 10))
+    plot_gain = theplot + hlines_gain + acc_gain_separate + xlab(FALSE) +
+        ylab(ylabel_gain) + theme(legend.position = "none",
+                                  text = element_text(family = "serif", size = 10))
     
     return(list(
         plot_comb,
@@ -273,37 +278,104 @@ threeplots = prep_plot(
     ylabel_gain = 'Accuracy gain\n',
     xlabel_all = '\nEffect size: "case 1" vs. "case 2"',
     legend_titl = 'Initial effect size: "case 1" vs. "control"',
-    legend_var = 'acc1'
+    legend_var = 'acc1' # alternatives: 'd_1' or 'acc1'
 )
-# alternatives: 'd_1' or 'acc1'
 
+
+threeplots[[1]]
 threeplots[[2]]
 
 ui <- fluidPage(
-    
-    titlePanel("Effect Sizes versus Diagnostics"),
-    
-    sidebarLayout(position = "left",
-        
-        sidebarPanel( 
-            sliderInput("obs",
-                        "Number of observations:",
-                        min = 0,
-                        max = 1000,
-                        value = 500)
-        ),
-        mainPanel(
+    theme = shinytheme("darkly"),
+    sidebarLayout(
+        position = "right",
+        sidebarPanel(
             tabsetPanel(
-                tabPanel("Plot", plotlyOutput("esdc_plot")), 
-                tabPanel("Table", dataTableOutput("esdc_table"))
+                tabPanel(
+                    "Numbers",
+                    splitLayout(
+                        numericInput("sd1", "Case 1 SD", 1, min = 0),
+                        numericInput("sd2", "Case 2 SD", 1, min = 0),
+                        numericInput("N", "Sample size", 500, min = 100, max = 30000)
+                    ),
+                    p(strong('Initial effect sizes of "case 1" vs. "control":')),
+                    splitLayout(
+                        numericInput("gi1_start", "Min.", 0.5, min = 0, max = 10),
+                        numericInput("gi1_end", "Max.", 2.5, min = 0, max = 10),
+                        numericInput("gi1_step", "Step", 0.5, min = 0.01, max = 10)
+                    ),
+                    p(strong('Effect sizes of "case 1" vs. "case 2":')),
+                    splitLayout(
+                        numericInput("gg_start", "Min.", 0.0, min = 0, max = 10),
+                        numericInput("gg_end", "Max.", 1.2, min = 0, max = 10),
+                        numericInput("gg_step", "Step", 0.05, min = 0.01, max = 10)
+                    ),
+                    hr(),
+                    selectInput(
+                        "yval_opt",
+                        "Diagnostic accuracy measure (rate/AUC)",
+                        c(
+                            "Rate of correct detection" = "acc",
+                            "Area under the curve" = "auc"
+                        )
+                    ),
+                    selectInput(
+                        "legend_var",
+                        "Legend content",
+                        c(
+                            "Initial effect size" = 'd_1',
+                            "Initial accuracy (rate/AUC)" = 'acc1'
+                        )
+                    ),
+                    hr(),
+                    actionButton("recalc", "UPDATE PLOTS AND TABLE", class = "btn btn-primary")
+                ),
+                tabPanel(
+                    "Plot Texts",
+                    textInput(
+                        "ylabel_total",
+                        'Y axis label for total',
+                        'Accuracy: "case 2" vs. "control"\n'
+                    ),
+                    textInput("ylabel_gain", 'Y axis label for gain', 'Accuracy gain\n'),
+                    textInput("xlabel_all", 'X axis label', '\nEffect size: "case 1" vs. "case 2"'),
+                    textInput(
+                        "legend_titl",
+                        'Legend title',
+                        'Initial effect size: "case 1" vs. "control"'
+                    ),
+                    hr(),
+                    actionButton("recalc", "UPDATE PLOTS AND TABLE", class = "btn btn-primary")
+                )
             )
-        )
+        ), 
+        mainPanel(tabsetPanel(
+            tabPanel("Plot",
+                     fluidRow(
+                         column(7,
+                                tags$h3("Combined Plot", align = 'center'),
+                                plotOutput("esdc_plot_comb")),
+                         column(5,
+                                tags$h3("Interactive Subplots", align = 'center'),
+                                fluidRow(
+                                    plotlyOutput("esdc_plot_tot", height="300px"),
+                                    plotlyOutput("esdc_plot_gain", height="300px")
+                                ))
+                     )),
+            tabPanel("Table", dataTableOutput("esdc_table"))
+        ))
     )
 )
 
 server <- function(input, output) {
-    output$esdc_plot <- renderPlotly({
+    output$esdc_plot_comb <- renderPlot({
+        threeplots[[1]]
+    })
+    output$esdc_plot_tot <- renderPlotly({
         threeplots[[2]]
+    })
+    output$esdc_plot_gain <- renderPlotly({
+        threeplots[[3]]
     })
     output$esdc_table <- renderDataTable({
         res_tabl
@@ -311,6 +383,4 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-
-
-
+    
