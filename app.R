@@ -283,7 +283,7 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("sd_g", "Case SD", 1, min = 0),
                     numericInput("sd_i", "Control SD", 1, min = 0),
-                    numericInput("N", "Sample size", 500, min = 100, max = 30000)
+                    numericInput("N", "Sample size", 100, min = 100, max = 30000)
                 ),
                 p(strong(
                     'Initial effect sizes of "case 1" vs. "control":'
@@ -291,13 +291,13 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("gi1_start", "Min.", 0.5, min = 0, max = 10),
                     numericInput("gi1_end", "Max.", 2.5, min = 0, max = 10),
-                    numericInput("gi1_step", "Step", 0.5, min = 0.05, max = 10, step = 0.025)
+                    numericInput("gi1_step", "Step", 1.0, min = 0.05, max = 10, step = 0.025)
                 ),
                 p(strong('Effect sizes of "case 1" vs. "case 2":')),
                 splitLayout(
                     numericInput("gg_start", "Min.", 0.0, min = 0, max = 10),
                     numericInput("gg_end", "Max.", 1.2, min = 0, max = 10),
-                    numericInput("gg_step", "Step", 0.1, min = 0.025, max = 10, step = 0.025)
+                    numericInput("gg_step", "Step", 0.5, min = 0.025, max = 10, step = 0.025)
                 ),
                 hr(),
                 selectInput(
