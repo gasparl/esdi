@@ -18,6 +18,7 @@ hush = function(code) {
 
 ### --- Accuracy vs. Effect
 
+
 prep_sim = function(gg_start,
                     gg_end,
                     gg_step,
@@ -29,81 +30,89 @@ prep_sim = function(gg_start,
                     N) {
     d_between_guilties = seq(gg_start, gg_end, by = gg_step)
     d_case_control = seq(gi1_start, gi1_end, by = gi1_step)
-    col_names = c(
-        "d_case1_vs_case2",
-        "mean_1",
-        "mean_2",
-        "d_1",
-        "d_2",
-        "d_gain",
-        "accuracy_1",
-        "accuracy_2",
-        "accuracy_gain",
-        "AUC_1",
-        "AUC_2",
-        "AUC_gain"
-    )
-    results_table = data.frame(matrix(NA , nrow = 0, ncol = length(col_names)))
-    colnames(results_table) = col_names
-    for (d_gi0 in d_case_control) {
-        for (d_gg0 in d_between_guilties) {
-            mg1 = d_gi0 * (((sd_g ** 2 + sd_i ** 2) / 2) ** 0.5)
-            mg2 = d_gg0 * (((sd_g ** 2 + sd_g ** 2) / 2) ** 0.5) + mg1
-            case1 = nearnormal(n = N,
-                               mean = mg1,
-                               sd = sd_g)
-            case2 = nearnormal(n = N,
-                               mean = mg2,
-                               sd = sd_g)
-            control1 = nearnormal(n = N,
-                                  mean = 0,
-                                  sd = sd_i)
-            control2 = nearnormal(n = N,
-                                  mean = 0,
-                                  sd = sd_i)
-            
-            gi1 = hush(t_neat(
-                case1,
-                control1,
-                auc_added = T,
-                bf_added = F,
-                hush = T
-            ))
-            gi2 = hush(t_neat(
-                case2,
-                control2,
-                auc_added = T,
-                bf_added = F,
-                hush = T
-            ))
-            d_gi1 = gi1$stats["d"]
-            d_gi2 = gi2$stats["d"]
-            auc1 = gi1$stats["auc"]
-            auc2 = gi2$stats["auc"]
-            acc1 = gi1$stats["accuracy"]
-            acc2 = gi2$stats["accuracy"]
-            d_gg = hush(t_neat(
-                case2,
-                case1,
-                bf_added = F,
-                hush = T
-            )$stats["d"])
-            results_table[nrow(results_table) + 1, ] = c(
-                d_gg,
-                mg1,
-                mg2,
-                d_gi1,
-                d_gi2,
-                d_gi2 - d_gi1,
-                auc1,
-                auc2,
-                auc2 - auc1,
-                acc1,
-                acc2,
-                acc2 - acc1
-            )
+    total_its <- length(d_between_guilties) * length(d_case_control)
+    its_ready = 0
+    withProgress(message = 'Recalculating...', value = 0, {
+        col_names = c(
+            "d_case1_vs_case2",
+            "mean_1",
+            "mean_2",
+            "d_1",
+            "d_2",
+            "d_gain",
+            "accuracy_1",
+            "accuracy_2",
+            "accuracy_gain",
+            "AUC_1",
+            "AUC_2",
+            "AUC_gain"
+        )
+        results_table = data.frame(matrix(NA , nrow = 0, ncol = length(col_names)))
+        colnames(results_table) = col_names
+        for (d_gi0 in d_case_control) {
+            for (d_gg0 in d_between_guilties) {
+                mg1 = d_gi0 * (((sd_g ** 2 + sd_i ** 2) / 2) ** 0.5)
+                mg2 = d_gg0 * (((sd_g ** 2 + sd_g ** 2) / 2) ** 0.5) + mg1
+                case1 = nearnormal(n = N,
+                                   mean = mg1,
+                                   sd = sd_g)
+                case2 = nearnormal(n = N,
+                                   mean = mg2,
+                                   sd = sd_g)
+                control1 = nearnormal(n = N,
+                                      mean = 0,
+                                      sd = sd_i)
+                control2 = nearnormal(n = N,
+                                      mean = 0,
+                                      sd = sd_i)
+                
+                gi1 = hush(t_neat(
+                    case1,
+                    control1,
+                    auc_added = T,
+                    bf_added = F,
+                    hush = T
+                ))
+                gi2 = hush(t_neat(
+                    case2,
+                    control2,
+                    auc_added = T,
+                    bf_added = F,
+                    hush = T
+                ))
+                d_gi1 = gi1$stats["d"]
+                d_gi2 = gi2$stats["d"]
+                auc1 = gi1$stats["auc"]
+                auc2 = gi2$stats["auc"]
+                acc1 = gi1$stats["accuracy"]
+                acc2 = gi2$stats["accuracy"]
+                d_gg = hush(t_neat(
+                    case2,
+                    case1,
+                    bf_added = F,
+                    hush = T
+                )$stats["d"])
+                results_table[nrow(results_table) + 1,] = c(
+                    d_gg,
+                    mg1,
+                    mg2,
+                    d_gi1,
+                    d_gi2,
+                    d_gi2 - d_gi1,
+                    auc1,
+                    auc2,
+                    auc2 - auc1,
+                    acc1,
+                    acc2,
+                    acc2 - acc1
+                )
+                its_ready = its_ready + (1 / total_its)
+                incProgress(1 / total_its, detail = paste0(ro((
+                    its_ready * 100
+                ), 0), '%'))
+            }
         }
-    }
+    })
     return(results_table)
 }
 
@@ -121,7 +130,6 @@ prep_plot = function(results_to_plot,
         results_to_plot$yvals_gain = results_to_plot$accuracy_gain
         if (legend_var != 'd_1') {
             legend_var = 'accuracy_1'
-            # TODO replace "Initial effect size:" with "Initial accuracy:" -- perhaps already when choosing it, interactively
         }
     } else {
         results_to_plot$yvals_1 = results_to_plot$AUC_1
@@ -129,7 +137,6 @@ prep_plot = function(results_to_plot,
         results_to_plot$yvals_gain = results_to_plot$AUC_gain
         if (legend_var != 'd_1') {
             legend_var = 'AUC_1'
-            # TODO replace "Initial effect size:" with "Initial accuracy:"
         }
     }
     theplot = ggplot(data = results_to_plot,
@@ -267,6 +274,10 @@ prep_plot = function(results_to_plot,
     ))
 }
 
+init_labels = list(d_1 = 'Initial effect size ("case 1" vs. "control")',
+                   auc = 'Initial areas under the curves',
+                   acc = 'Initial correct detection rates')
+
 ui <- fluidPage(
     theme = shinytheme("darkly"),
     tags$head(tags$style(
@@ -281,6 +292,7 @@ ui <- fluidPage(
         sidebarPanel(tabsetPanel(
             tabPanel(
                 "Numbers",
+                br(),
                 splitLayout(
                     numericInput("sd_g", "Case SD", 1, min = 0),
                     numericInput("sd_i", "Control SD", 1, min = 0),
@@ -319,6 +331,7 @@ ui <- fluidPage(
             ),
             tabPanel(
                 "Plots",
+                br(),
                 selectInput(
                     "yval_opt",
                     "Diagnostic accuracy measure (rate/AUC)",
@@ -342,11 +355,9 @@ ui <- fluidPage(
                 ),
                 textInput("ylabel_gain", 'Y axis label for gain', 'Accuracy gain\n'),
                 textInput("xlabel_all", 'X axis label', '\nEffect size: "case 1" vs. "case 2"'),
-                textInput(
-                    "legend_titl",
-                    'Legend title',
-                    'Initial effect size: "case 1" vs. "control"'
-                ),
+                textInput("legend_titl",
+                          'Legend title',
+                          paste0(init_labels$d_1)),
                 hr(),
                 actionButton("replot", "UPDATE PLOTS", class = "btn btn-primary")
             )
@@ -391,7 +402,20 @@ ui <- fluidPage(
     )
 )
 
-server <- function(input, output) {
+server <- function(input, output, session) {
+    observeEvent(c(input$legend_var, input$yval_opt),   {
+        if (input$legend_titl %in% init_labels) {
+            print('in labels')
+            if (input$legend_var == 'd_1') {
+                print('ints d1')
+                updateTextInput(session, "legend_titl", value = init_labels$d_1)
+            } else {
+                print('ints not d1')
+                updateTextInput(session, "legend_titl", value = init_labels[[input$yval_opt]])
+            }
+        }
+    })
+    
     res_tabl <-
         eventReactive(input$recalc,
                       ignoreNULL = FALSE, {
@@ -407,6 +431,7 @@ server <- function(input, output) {
                               N = input$N
                           )
                       })
+    
     threeplots <-
         eventReactive(c(input$recalc, input$replot),
                       ignoreNULL = FALSE, {
