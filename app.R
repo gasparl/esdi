@@ -8,8 +8,9 @@ library("neatStats")
 nearnormal = function(n, mean = 0, sd = 1) {
     stats::qnorm(seq(1 / n, 1 - 1 / n, length.out = n), mean, sd)
 }
+
 hush = function(code) {
-    sink("NUL")
+    sink(ifelse(.Platform$OS.type == "windows", "NUL", "/dev/null"))
     tmp = code
     sink()
     return(tmp)
@@ -87,7 +88,7 @@ prep_sim = function(gg_start,
                 bf_added = F,
                 hush = T
             )$stats["d"])
-            results_table[nrow(results_table) + 1,] = c(
+            results_table[nrow(results_table) + 1, ] = c(
                 d_gg,
                 mg1,
                 mg2,
@@ -283,7 +284,7 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("sd_g", "Case SD", 1, min = 0),
                     numericInput("sd_i", "Control SD", 1, min = 0),
-                    numericInput("N", "Sample size", 100, min = 100, max = 30000)
+                    numericInput("N", "Sample size", 500, min = 100, max = 30000)
                 ),
                 p(strong(
                     'Initial effect sizes of "case 1" vs. "control":'
@@ -291,15 +292,33 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("gi1_start", "Min.", 0.5, min = 0, max = 10),
                     numericInput("gi1_end", "Max.", 2.5, min = 0, max = 10),
-                    numericInput("gi1_step", "Step", 1.0, min = 0.05, max = 10, step = 0.025)
+                    numericInput(
+                        "gi1_step",
+                        "Step",
+                        0.5,
+                        min = 0.05,
+                        max = 10,
+                        step = 0.025
+                    )
                 ),
                 p(strong('Effect sizes of "case 1" vs. "case 2":')),
                 splitLayout(
                     numericInput("gg_start", "Min.", 0.0, min = 0, max = 10),
                     numericInput("gg_end", "Max.", 1.2, min = 0, max = 10),
-                    numericInput("gg_step", "Step", 0.5, min = 0.025, max = 10, step = 0.025)
+                    numericInput(
+                        "gg_step",
+                        "Step",
+                        0.1,
+                        min = 0.025,
+                        max = 10,
+                        step = 0.025
+                    )
                 ),
                 hr(),
+                actionButton("recalc", "UPDATE NUMBERS AND PLOTS", class = "btn btn-primary")
+            ),
+            tabPanel(
+                "Plots",
                 selectInput(
                     "yval_opt",
                     "Diagnostic accuracy measure (rate/AUC)",
@@ -316,11 +335,6 @@ ui <- fluidPage(
                         "Initial accuracy (rate/AUC)" = 'acc1'
                     )
                 ),
-                hr(),
-                actionButton("recalc", "UPDATE PLOTS AND TABLE", class = "btn btn-primary")
-            ),
-            tabPanel(
-                "Texts",
                 textInput(
                     "ylabel_total",
                     'Y axis label for total',
@@ -334,7 +348,7 @@ ui <- fluidPage(
                     'Initial effect size: "case 1" vs. "control"'
                 ),
                 hr(),
-                actionButton("recalc2", "UPDATE PLOTS AND TABLE", class = "btn btn-primary")
+                actionButton("replot", "UPDATE PLOTS", class = "btn btn-primary")
             )
         ),
         tabPanel("Info", # perhaps elsewhere, perhaps with some link button or whatever
@@ -379,7 +393,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
     res_tabl <-
-        eventReactive(c(input$recalc, input$recalc2),
+        eventReactive(input$recalc,
                       ignoreNULL = FALSE, {
                           prep_sim(
                               gg_start = input$gg_start,
@@ -394,7 +408,7 @@ server <- function(input, output) {
                           )
                       })
     threeplots <-
-        eventReactive(c(input$recalc, input$recalc2),
+        eventReactive(c(input$recalc, input$replot),
                       ignoreNULL = FALSE, {
                           prep_plot(
                               results_to_plot = res_tabl(),
