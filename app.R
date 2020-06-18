@@ -92,7 +92,7 @@ prep_sim = function(gg_start,
                     bf_added = F,
                     hush = T
                 )$stats["d"])
-                results_table[nrow(results_table) + 1,] = c(
+                results_table[nrow(results_table) + 1, ] = c(
                     d_gg,
                     mg1,
                     mg2,
@@ -296,7 +296,12 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("sd_g", "Case SD", 1, min = 0),
                     numericInput("sd_i", "Control SD", 1, min = 0),
-                    numericInput("N", "Sample size", 500, min = 100, max = 30000)
+                    numericInput("N",
+                                 "Sample size",
+                                 500,
+                                 min = 100,
+                                 max = 30000,
+                                 step = 1)
                 ),
                 p(strong(
                     'Initial effect sizes of "case 1" vs. "control":'
@@ -370,7 +375,9 @@ ui <- fluidPage(
                          column(
                              7,
                              tags$h3("Combined Plot", align = 'center'),
-                             withSpinner(plotOutput("esdc_plot_comb"))
+                             withSpinner(plotOutput("esdc_plot_comb")),
+                             br(),
+                             htmlOutput("sd_feed")
                          ),
                          column(
                              5,
@@ -405,12 +412,9 @@ ui <- fluidPage(
 server <- function(input, output, session) {
     observeEvent(c(input$legend_var, input$yval_opt),   {
         if (input$legend_titl %in% init_labels) {
-            print('in labels')
             if (input$legend_var == 'd_1') {
-                print('ints d1')
                 updateTextInput(session, "legend_titl", value = init_labels$d_1)
             } else {
-                print('ints not d1')
                 updateTextInput(session, "legend_titl", value = init_labels[[input$yval_opt]])
             }
         }
@@ -445,6 +449,20 @@ server <- function(input, output, session) {
                               legend_var = input$legend_var
                           )
                       })
+    paramstext   <-
+        eventReactive(input$recalc,
+                      ignoreNULL = FALSE, {
+                          paste0(
+                              "<p><b>Case SD:</b> ",
+                              input$sd_g,
+                              "<p/><p><b>Control SD:</b> ",
+                              input$sd_i,
+                              "<p/><p><b>Sample size:</b> ",
+                              input$N,
+                              '</p>'
+                          )
+                      })
+    
     
     output$esdc_plot_comb <- renderPlot({
         threeplots()[[1]]
@@ -466,6 +484,9 @@ server <- function(input, output, session) {
     })
     output$esdc_table <- renderDataTable({
         res_tabl()
+    })
+    output$sd_feed <- renderUI({
+        HTML(paramstext())
     })
 }
 
