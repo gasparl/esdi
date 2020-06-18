@@ -1,0 +1,13 @@
+app <- ShinyDriver$new("../")
+app$snapshotInit("esdi_test_2")
+
+app$setInputs(gg_step = 0.9)
+app$setInputs(sd_i = 0)
+app$setInputs(sd_i = 0.8)
+app$setInputs(sd_i = 0.18)
+app$setInputs(recalc = "click")
+app$snapshot()
+app$setInputs(yval_opt = "auc")
+app$setInputs(legend_var = "acc1")
+app$setInputs(replot = "click")
+app$snapshot()

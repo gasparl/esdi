@@ -5,6 +5,21 @@ library("ggplot2")
 library("plotly")
 library("neatStats")
 
+ro = function(num,
+              round_to = 2,
+              leading_zero = TRUE) {
+    if (is.numeric(num)) {
+        value = num
+    } else {
+        value = as.numeric(as.character(num))
+    }
+    formtd = format(round(value, round_to), nsmall = round_to)
+    if (leading_zero == FALSE) {
+        formtd = sub("0.", ".", formtd, fixed = TRUE)
+    }
+    return(formtd)
+}
+
 nearnormal = function(n, mean = 0, sd = 1) {
     stats::qnorm(seq(1 / n, 1 - 1 / n, length.out = n), mean, sd)
 }
@@ -15,9 +30,6 @@ hush = function(code) {
     sink()
     return(tmp)
 }
-
-### --- Accuracy vs. Effect
-
 
 prep_sim = function(gg_start,
                     gg_end,

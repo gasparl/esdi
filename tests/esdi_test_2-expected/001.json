@@ -1,0 +1,1078 @@
+{
+  "input": {
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "gg_end": 1.2,
+    "gg_start": 0,
+    "gg_step": 0.9,
+    "gi1_end": 2.5,
+    "gi1_start": 0.5,
+    "gi1_step": 0.5,
+    "legend_titl": "Initial effect size (\"case 1\" vs. \"control\")",
+    "legend_var": "d_1",
+    "N": 500,
+    "plotly_afterplot-A": "\"esdc_plot_gain\"",
+    "recalc": 1,
+    "replot": 0,
+    "sd_g": 1,
+    "sd_i": 0.18,
+    "xlabel_all": "Effect size: \"case 1\" vs. \"case 2\"",
+    "ylabel_gain": "Accuracy gain",
+    "ylabel_total": "Accuracy: \"case 2\" vs. \"control\"",
+    "yval_opt": "acc"
+  },
+  "output": {
+    "esdc_plot_comb": {
+      "src": "[image data sha1: 42cf2dd706bd869f380d961b45d8be88c1971a77]",
+      "width": 350,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "domain": {
+              "left": -0.0454441948489589,
+              "right": 0.954328091828136,
+              "bottom": 0.475,
+              "top": 1.025
+            },
+            "mapping": {
+              "y": null,
+              "yintercept": "yintercept",
+              "x": "d_case1_vs_case2",
+              "group": "yvals_1",
+              "colour": "as.factor(yvals_1)"
+            },
+            "range": {
+              "left": 58.1506849315069,
+              "right": 291.849315068493,
+              "bottom": 290.18699875467,
+              "top": 5.47945205479452
+            }
+          }
+        ],
+        "dims": {
+          "width": 350,
+          "height": 400
+        }
+      }
+    },
+    "esdc_plot_gain": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136
+            ],
+            "y": [
+              0.05,
+              0.05,
+              null,
+              0.1,
+              0.1,
+              null,
+              0.15,
+              0.15,
+              null,
+              0.2,
+              0.2,
+              null,
+              0.25,
+              0.25
+            ],
+            "text": "",
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "rgba(230,230,230,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0,
+              0.254764
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .638<br />New accuracy: .638<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .638<br />New accuracy: .893<br />Accuracy gain: .255"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(179,179,179,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.638484",
+            "legendgroup": "0.638484",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0,
+              0.184516
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .761<br />New accuracy: .761<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .761<br />New accuracy: .945<br />Accuracy gain: .185"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(157,157,157,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.760836",
+            "legendgroup": "0.760836",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0,
+              0.118812
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .856<br />New accuracy: .856<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .856<br />New accuracy: .975<br />Accuracy gain: .119"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(130,130,130,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.85638",
+            "legendgroup": "0.85638",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0,
+              0.068008
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .922<br />New accuracy: .922<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .922<br />New accuracy: .990<br />Accuracy gain: .068"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(95,95,95,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.922268",
+            "legendgroup": "0.922268",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0,
+              0.034612
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .962<br />New accuracy: .962<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .962<br />New accuracy: .997<br />Accuracy gain: .035"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(0,0,0,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.96242",
+            "legendgroup": "0.96242",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 22.3926940639269,
+            "r": 7.30593607305936,
+            "b": 38.7380655873807,
+            "l": 46.027397260274
+          },
+          "plot_bgcolor": "rgba(255,255,255,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(0,0,0,1)",
+            "family": "serif",
+            "size": 15.9402241594022
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0454441948489589,
+              0.954328091828136
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75"
+            ],
+            "tickvals": [
+              0,
+              0.25,
+              0.5,
+              0.75
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": false,
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0127382,
+              0.2675022
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.0",
+              "0.1",
+              "0.2"
+            ],
+            "tickvals": [
+              0,
+              0.1,
+              0.2
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.0",
+              "0.1",
+              "0.2"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Accuracy gain",
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": "transparent",
+              "line": {
+                "color": "rgba(51,51,51,1)",
+                "width": 0.66417600664176,
+                "linetype": "solid"
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(0,0,0,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "showSendToCloud": false,
+          "displaylogo": false,
+          "modeBarButtonsToRemove": [
+            "autoScale2d",
+            "pan2d",
+            "zoom2d",
+            "zoomIn2d",
+            "zoomOut2d"
+          ]
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.0.1",
+          "src": {
+            "href": "crosstalk-1.1.0.1"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.52.2"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-main-1.52.2"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "esdc_plot_tot": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136,
+              null,
+              -0.0454441948489589,
+              0.954328091828136
+            ],
+            "y": [
+              0.7,
+              0.7,
+              null,
+              0.75,
+              0.75,
+              null,
+              0.8,
+              0.8,
+              null,
+              0.85,
+              0.85,
+              null,
+              0.9,
+              0.9,
+              null,
+              0.95,
+              0.95
+            ],
+            "text": "",
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "rgba(230,230,230,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0.638484,
+              0.893248
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .638<br />New accuracy: .638<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .638<br />New accuracy: .893<br />Accuracy gain: .255"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(179,179,179,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.638484",
+            "legendgroup": "0.638484",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0.760836,
+              0.945352
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .761<br />New accuracy: .761<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .761<br />New accuracy: .945<br />Accuracy gain: .185"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(157,157,157,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.760836",
+            "legendgroup": "0.760836",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0.85638,
+              0.975192
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .856<br />New accuracy: .856<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .856<br />New accuracy: .975<br />Accuracy gain: .119"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(130,130,130,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.85638",
+            "legendgroup": "0.85638",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0.922268,
+              0.990276
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .922<br />New accuracy: .922<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .922<br />New accuracy: .990<br />Accuracy gain: .068"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(95,95,95,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.922268",
+            "legendgroup": "0.922268",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.908883896979177
+            ],
+            "y": [
+              0.96242,
+              0.997032
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .962<br />New accuracy: .962<br />Accuracy gain: .000",
+              "Effect size: 0.909<br />Initial accuracy: .962<br />New accuracy: .997<br />Accuracy gain: .035"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(0,0,0,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.96242",
+            "legendgroup": "0.96242",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 22.3926940639269,
+            "r": 7.30593607305936,
+            "b": 38.7380655873807,
+            "l": 46.027397260274
+          },
+          "plot_bgcolor": "rgba(255,255,255,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(0,0,0,1)",
+            "family": "serif",
+            "size": 15.9402241594022
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0454441948489589,
+              0.954328091828136
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75"
+            ],
+            "tickvals": [
+              0,
+              0.25,
+              0.5,
+              0.75
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": false,
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              0.6205566,
+              1.0149594
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.7",
+              "0.8",
+              "0.9",
+              "1.0"
+            ],
+            "tickvals": [
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.7",
+              "0.8",
+              "0.9",
+              "1.0"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Accuracy: \"case 2\" vs. \"control\"",
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": "transparent",
+              "line": {
+                "color": "rgba(51,51,51,1)",
+                "width": 0.66417600664176,
+                "linetype": "solid"
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(0,0,0,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "showSendToCloud": false,
+          "displaylogo": false,
+          "modeBarButtonsToRemove": [
+            "autoScale2d",
+            "pan2d",
+            "zoom2d",
+            "zoomIn2d",
+            "zoomOut2d"
+          ]
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.0.1",
+          "src": {
+            "href": "crosstalk-1.1.0.1"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.52.2"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-main-1.52.2"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "sd_feed": {
+      "html": "<p><b>Case SD:<\/b> 1<p/><p><b>Control SD:<\/b> 0.18<p/><p><b>Sample size:<\/b> 500<\/p>",
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}

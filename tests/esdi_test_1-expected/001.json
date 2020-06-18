@@ -1,0 +1,1423 @@
+{
+  "input": {
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "gg_end": 1.2,
+    "gg_start": 0,
+    "gg_step": 0.1,
+    "gi1_end": 2.5,
+    "gi1_start": 0.5,
+    "gi1_step": 0.5,
+    "legend_titl": "Initial effect size (\"case 1\" vs. \"control\")",
+    "legend_var": "d_1",
+    "N": 500,
+    "plotly_afterplot-A": "\"esdc_plot_gain\"",
+    "recalc": 0,
+    "replot": 0,
+    "sd_g": 1,
+    "sd_i": 1,
+    "xlabel_all": "Effect size: \"case 1\" vs. \"case 2\"",
+    "ylabel_gain": "Accuracy gain",
+    "ylabel_total": "Accuracy: \"case 2\" vs. \"control\"",
+    "yval_opt": "acc"
+  },
+  "output": {
+    "esdc_plot_comb": {
+      "src": "[image data sha1: 72def479270b7c5cba8a36441f6613587fbb2593]",
+      "width": 350,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "domain": {
+              "left": -0.0605922597986118,
+              "right": 1.27243745577085,
+              "bottom": 0.475,
+              "top": 1.025
+            },
+            "mapping": {
+              "y": null,
+              "yintercept": "yintercept",
+              "x": "d_case1_vs_case2",
+              "group": "yvals_1",
+              "colour": "as.factor(yvals_1)"
+            },
+            "range": {
+              "left": 58.1506849315069,
+              "right": 291.849315068493,
+              "bottom": 290.18699875467,
+              "top": 5.47945205479452
+            }
+          }
+        ],
+        "dims": {
+          "width": 350,
+          "height": 400
+        }
+      }
+    },
+    "esdc_plot_gain": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085
+            ],
+            "y": [
+              0.05,
+              0.05,
+              null,
+              0.1,
+              0.1,
+              null,
+              0.15,
+              0.15,
+              null,
+              0.2,
+              0.2
+            ],
+            "text": "",
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "rgba(230,230,230,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0,
+              0.026352,
+              0.051824,
+              0.076388,
+              0.100008,
+              0.122636,
+              0.144168,
+              0.16448,
+              0.18364,
+              0.201544,
+              0.218296,
+              0.23382,
+              0.248128
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .639<br />New accuracy: .639<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .639<br />New accuracy: .665<br />Accuracy gain: .026",
+              "Effect size: 0.202<br />Initial accuracy: .639<br />New accuracy: .690<br />Accuracy gain: .052",
+              "Effect size: 0.303<br />Initial accuracy: .639<br />New accuracy: .715<br />Accuracy gain: .076",
+              "Effect size: 0.404<br />Initial accuracy: .639<br />New accuracy: .739<br />Accuracy gain: .100",
+              "Effect size: 0.505<br />Initial accuracy: .639<br />New accuracy: .761<br />Accuracy gain: .123",
+              "Effect size: 0.606<br />Initial accuracy: .639<br />New accuracy: .783<br />Accuracy gain: .144",
+              "Effect size: 0.707<br />Initial accuracy: .639<br />New accuracy: .803<br />Accuracy gain: .164",
+              "Effect size: 0.808<br />Initial accuracy: .639<br />New accuracy: .822<br />Accuracy gain: .184",
+              "Effect size: 0.909<br />Initial accuracy: .639<br />New accuracy: .840<br />Accuracy gain: .202",
+              "Effect size: 1.010<br />Initial accuracy: .639<br />New accuracy: .857<br />Accuracy gain: .218",
+              "Effect size: 1.111<br />Initial accuracy: .639<br />New accuracy: .872<br />Accuracy gain: .234",
+              "Effect size: 1.212<br />Initial accuracy: .639<br />New accuracy: .887<br />Accuracy gain: .248"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(179,179,179,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.638652",
+            "legendgroup": "0.638652",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0,
+              0.021532,
+              0.041844,
+              0.0610040000000001,
+              0.078908,
+              0.09566,
+              0.111184,
+              0.125492,
+              0.13868,
+              0.150652,
+              0.16162,
+              0.171428,
+              0.180348
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .761<br />New accuracy: .761<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .761<br />New accuracy: .783<br />Accuracy gain: .022",
+              "Effect size: 0.202<br />Initial accuracy: .761<br />New accuracy: .803<br />Accuracy gain: .042",
+              "Effect size: 0.303<br />Initial accuracy: .761<br />New accuracy: .822<br />Accuracy gain: .061",
+              "Effect size: 0.404<br />Initial accuracy: .761<br />New accuracy: .840<br />Accuracy gain: .079",
+              "Effect size: 0.505<br />Initial accuracy: .761<br />New accuracy: .857<br />Accuracy gain: .096",
+              "Effect size: 0.606<br />Initial accuracy: .761<br />New accuracy: .872<br />Accuracy gain: .111",
+              "Effect size: 0.707<br />Initial accuracy: .761<br />New accuracy: .887<br />Accuracy gain: .125",
+              "Effect size: 0.808<br />Initial accuracy: .761<br />New accuracy: .900<br />Accuracy gain: .139",
+              "Effect size: 0.909<br />Initial accuracy: .761<br />New accuracy: .912<br />Accuracy gain: .151",
+              "Effect size: 1.010<br />Initial accuracy: .761<br />New accuracy: .923<br />Accuracy gain: .162",
+              "Effect size: 1.111<br />Initial accuracy: .761<br />New accuracy: .933<br />Accuracy gain: .171",
+              "Effect size: 1.212<br />Initial accuracy: .761<br />New accuracy: .942<br />Accuracy gain: .180"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(157,157,157,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.761288",
+            "legendgroup": "0.761288",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0,
+              0.0155240000000001,
+              0.0298320000000001,
+              0.0430200000000001,
+              0.054992,
+              0.06596,
+              0.0757680000000001,
+              0.0846880000000001,
+              0.092628,
+              0.099704,
+              0.105964,
+              0.111492,
+              0.116356
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .857<br />New accuracy: .857<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .857<br />New accuracy: .872<br />Accuracy gain: .016",
+              "Effect size: 0.202<br />Initial accuracy: .857<br />New accuracy: .887<br />Accuracy gain: .030",
+              "Effect size: 0.303<br />Initial accuracy: .857<br />New accuracy: .900<br />Accuracy gain: .043",
+              "Effect size: 0.404<br />Initial accuracy: .857<br />New accuracy: .912<br />Accuracy gain: .055",
+              "Effect size: 0.505<br />Initial accuracy: .857<br />New accuracy: .923<br />Accuracy gain: .066",
+              "Effect size: 0.606<br />Initial accuracy: .857<br />New accuracy: .933<br />Accuracy gain: .076",
+              "Effect size: 0.707<br />Initial accuracy: .857<br />New accuracy: .942<br />Accuracy gain: .085",
+              "Effect size: 0.808<br />Initial accuracy: .857<br />New accuracy: .950<br />Accuracy gain: .093",
+              "Effect size: 0.909<br />Initial accuracy: .857<br />New accuracy: .957<br />Accuracy gain: .100",
+              "Effect size: 1.010<br />Initial accuracy: .857<br />New accuracy: .963<br />Accuracy gain: .106",
+              "Effect size: 1.111<br />Initial accuracy: .857<br />New accuracy: .968<br />Accuracy gain: .111",
+              "Effect size: 1.212<br />Initial accuracy: .857<br />New accuracy: .973<br />Accuracy gain: .116"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(130,130,130,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.856948",
+            "legendgroup": "0.856948",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0,
+              0.00980800000000004,
+              0.0187280000000001,
+              0.026668,
+              0.033744,
+              0.040004,
+              0.045532,
+              0.050396,
+              0.0545800000000001,
+              0.058268,
+              0.061392,
+              0.064092,
+              0.066384
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .923<br />New accuracy: .923<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .923<br />New accuracy: .933<br />Accuracy gain: .010",
+              "Effect size: 0.202<br />Initial accuracy: .923<br />New accuracy: .942<br />Accuracy gain: .019",
+              "Effect size: 0.303<br />Initial accuracy: .923<br />New accuracy: .950<br />Accuracy gain: .027",
+              "Effect size: 0.404<br />Initial accuracy: .923<br />New accuracy: .957<br />Accuracy gain: .034",
+              "Effect size: 0.505<br />Initial accuracy: .923<br />New accuracy: .963<br />Accuracy gain: .040",
+              "Effect size: 0.606<br />Initial accuracy: .923<br />New accuracy: .968<br />Accuracy gain: .046",
+              "Effect size: 0.707<br />Initial accuracy: .923<br />New accuracy: .973<br />Accuracy gain: .050",
+              "Effect size: 0.808<br />Initial accuracy: .923<br />New accuracy: .977<br />Accuracy gain: .055",
+              "Effect size: 0.909<br />Initial accuracy: .923<br />New accuracy: .981<br />Accuracy gain: .058",
+              "Effect size: 1.010<br />Initial accuracy: .923<br />New accuracy: .984<br />Accuracy gain: .061",
+              "Effect size: 1.111<br />Initial accuracy: .923<br />New accuracy: .987<br />Accuracy gain: .064",
+              "Effect size: 1.212<br />Initial accuracy: .923<br />New accuracy: .989<br />Accuracy gain: .066"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(95,95,95,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.922908",
+            "legendgroup": "0.922908",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0,
+              0.00552799999999998,
+              0.010392,
+              0.014576,
+              0.0182639999999999,
+              0.021388,
+              0.024088,
+              0.02638,
+              0.028328,
+              0.029976,
+              0.031312,
+              0.03246,
+              0.033392
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .963<br />New accuracy: .963<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .963<br />New accuracy: .968<br />Accuracy gain: .006",
+              "Effect size: 0.202<br />Initial accuracy: .963<br />New accuracy: .973<br />Accuracy gain: .010",
+              "Effect size: 0.303<br />Initial accuracy: .963<br />New accuracy: .977<br />Accuracy gain: .015",
+              "Effect size: 0.404<br />Initial accuracy: .963<br />New accuracy: .981<br />Accuracy gain: .018",
+              "Effect size: 0.505<br />Initial accuracy: .963<br />New accuracy: .984<br />Accuracy gain: .021",
+              "Effect size: 0.606<br />Initial accuracy: .963<br />New accuracy: .987<br />Accuracy gain: .024",
+              "Effect size: 0.707<br />Initial accuracy: .963<br />New accuracy: .989<br />Accuracy gain: .026",
+              "Effect size: 0.808<br />Initial accuracy: .963<br />New accuracy: .991<br />Accuracy gain: .028",
+              "Effect size: 0.909<br />Initial accuracy: .963<br />New accuracy: .993<br />Accuracy gain: .030",
+              "Effect size: 1.010<br />Initial accuracy: .963<br />New accuracy: .994<br />Accuracy gain: .031",
+              "Effect size: 1.111<br />Initial accuracy: .963<br />New accuracy: .995<br />Accuracy gain: .032",
+              "Effect size: 1.212<br />Initial accuracy: .963<br />New accuracy: .996<br />Accuracy gain: .033"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(0,0,0,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.962912",
+            "legendgroup": "0.962912",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 22.3926940639269,
+            "r": 7.30593607305936,
+            "b": 38.7380655873807,
+            "l": 52.4034869240349
+          },
+          "plot_bgcolor": "rgba(255,255,255,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(0,0,0,1)",
+            "family": "serif",
+            "size": 15.9402241594022
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0605922597986118,
+              1.27243745577085
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75",
+              "1.00",
+              "1.25"
+            ],
+            "tickvals": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1,
+              1.25
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75",
+              "1.00",
+              "1.25"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": false,
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0124064,
+              0.2605344
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.00",
+              "0.05",
+              "0.10",
+              "0.15",
+              "0.20",
+              "0.25"
+            ],
+            "tickvals": [
+              0,
+              0.05,
+              0.1,
+              0.15,
+              0.2,
+              0.25
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.00",
+              "0.05",
+              "0.10",
+              "0.15",
+              "0.20",
+              "0.25"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Accuracy gain",
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": "transparent",
+              "line": {
+                "color": "rgba(51,51,51,1)",
+                "width": 0.66417600664176,
+                "linetype": "solid"
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(0,0,0,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "showSendToCloud": false,
+          "displaylogo": false,
+          "modeBarButtonsToRemove": [
+            "autoScale2d",
+            "pan2d",
+            "zoom2d",
+            "zoomIn2d",
+            "zoomOut2d"
+          ]
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.0.1",
+          "src": {
+            "href": "crosstalk-1.1.0.1"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.52.2"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-main-1.52.2"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "esdc_plot_tot": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085,
+              null,
+              -0.0605922597986118,
+              1.27243745577085
+            ],
+            "y": [
+              0.7,
+              0.7,
+              null,
+              0.75,
+              0.75,
+              null,
+              0.8,
+              0.8,
+              null,
+              0.85,
+              0.85,
+              null,
+              0.9,
+              0.9,
+              null,
+              0.95,
+              0.95
+            ],
+            "text": "",
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "rgba(230,230,230,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0.638652,
+              0.665004,
+              0.690476,
+              0.71504,
+              0.73866,
+              0.761288,
+              0.78282,
+              0.803132,
+              0.822292,
+              0.840196,
+              0.856948,
+              0.872472,
+              0.88678
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .639<br />New accuracy: .639<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .639<br />New accuracy: .665<br />Accuracy gain: .026",
+              "Effect size: 0.202<br />Initial accuracy: .639<br />New accuracy: .690<br />Accuracy gain: .052",
+              "Effect size: 0.303<br />Initial accuracy: .639<br />New accuracy: .715<br />Accuracy gain: .076",
+              "Effect size: 0.404<br />Initial accuracy: .639<br />New accuracy: .739<br />Accuracy gain: .100",
+              "Effect size: 0.505<br />Initial accuracy: .639<br />New accuracy: .761<br />Accuracy gain: .123",
+              "Effect size: 0.606<br />Initial accuracy: .639<br />New accuracy: .783<br />Accuracy gain: .144",
+              "Effect size: 0.707<br />Initial accuracy: .639<br />New accuracy: .803<br />Accuracy gain: .164",
+              "Effect size: 0.808<br />Initial accuracy: .639<br />New accuracy: .822<br />Accuracy gain: .184",
+              "Effect size: 0.909<br />Initial accuracy: .639<br />New accuracy: .840<br />Accuracy gain: .202",
+              "Effect size: 1.010<br />Initial accuracy: .639<br />New accuracy: .857<br />Accuracy gain: .218",
+              "Effect size: 1.111<br />Initial accuracy: .639<br />New accuracy: .872<br />Accuracy gain: .234",
+              "Effect size: 1.212<br />Initial accuracy: .639<br />New accuracy: .887<br />Accuracy gain: .248"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(179,179,179,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.638652",
+            "legendgroup": "0.638652",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0.761288,
+              0.78282,
+              0.803132,
+              0.822292,
+              0.840196,
+              0.856948,
+              0.872472,
+              0.88678,
+              0.899968,
+              0.91194,
+              0.922908,
+              0.932716,
+              0.941636
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .761<br />New accuracy: .761<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .761<br />New accuracy: .783<br />Accuracy gain: .022",
+              "Effect size: 0.202<br />Initial accuracy: .761<br />New accuracy: .803<br />Accuracy gain: .042",
+              "Effect size: 0.303<br />Initial accuracy: .761<br />New accuracy: .822<br />Accuracy gain: .061",
+              "Effect size: 0.404<br />Initial accuracy: .761<br />New accuracy: .840<br />Accuracy gain: .079",
+              "Effect size: 0.505<br />Initial accuracy: .761<br />New accuracy: .857<br />Accuracy gain: .096",
+              "Effect size: 0.606<br />Initial accuracy: .761<br />New accuracy: .872<br />Accuracy gain: .111",
+              "Effect size: 0.707<br />Initial accuracy: .761<br />New accuracy: .887<br />Accuracy gain: .125",
+              "Effect size: 0.808<br />Initial accuracy: .761<br />New accuracy: .900<br />Accuracy gain: .139",
+              "Effect size: 0.909<br />Initial accuracy: .761<br />New accuracy: .912<br />Accuracy gain: .151",
+              "Effect size: 1.010<br />Initial accuracy: .761<br />New accuracy: .923<br />Accuracy gain: .162",
+              "Effect size: 1.111<br />Initial accuracy: .761<br />New accuracy: .933<br />Accuracy gain: .171",
+              "Effect size: 1.212<br />Initial accuracy: .761<br />New accuracy: .942<br />Accuracy gain: .180"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(157,157,157,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.761288",
+            "legendgroup": "0.761288",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0.856948,
+              0.872472,
+              0.88678,
+              0.899968,
+              0.91194,
+              0.922908,
+              0.932716,
+              0.941636,
+              0.949576,
+              0.956652,
+              0.962912,
+              0.96844,
+              0.973304
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .857<br />New accuracy: .857<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .857<br />New accuracy: .872<br />Accuracy gain: .016",
+              "Effect size: 0.202<br />Initial accuracy: .857<br />New accuracy: .887<br />Accuracy gain: .030",
+              "Effect size: 0.303<br />Initial accuracy: .857<br />New accuracy: .900<br />Accuracy gain: .043",
+              "Effect size: 0.404<br />Initial accuracy: .857<br />New accuracy: .912<br />Accuracy gain: .055",
+              "Effect size: 0.505<br />Initial accuracy: .857<br />New accuracy: .923<br />Accuracy gain: .066",
+              "Effect size: 0.606<br />Initial accuracy: .857<br />New accuracy: .933<br />Accuracy gain: .076",
+              "Effect size: 0.707<br />Initial accuracy: .857<br />New accuracy: .942<br />Accuracy gain: .085",
+              "Effect size: 0.808<br />Initial accuracy: .857<br />New accuracy: .950<br />Accuracy gain: .093",
+              "Effect size: 0.909<br />Initial accuracy: .857<br />New accuracy: .957<br />Accuracy gain: .100",
+              "Effect size: 1.010<br />Initial accuracy: .857<br />New accuracy: .963<br />Accuracy gain: .106",
+              "Effect size: 1.111<br />Initial accuracy: .857<br />New accuracy: .968<br />Accuracy gain: .111",
+              "Effect size: 1.212<br />Initial accuracy: .857<br />New accuracy: .973<br />Accuracy gain: .116"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(130,130,130,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.856948",
+            "legendgroup": "0.856948",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0.922908,
+              0.932716,
+              0.941636,
+              0.949576,
+              0.956652,
+              0.962912,
+              0.96844,
+              0.973304,
+              0.977488,
+              0.981176,
+              0.9843,
+              0.987,
+              0.989292
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .923<br />New accuracy: .923<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .923<br />New accuracy: .933<br />Accuracy gain: .010",
+              "Effect size: 0.202<br />Initial accuracy: .923<br />New accuracy: .942<br />Accuracy gain: .019",
+              "Effect size: 0.303<br />Initial accuracy: .923<br />New accuracy: .950<br />Accuracy gain: .027",
+              "Effect size: 0.404<br />Initial accuracy: .923<br />New accuracy: .957<br />Accuracy gain: .034",
+              "Effect size: 0.505<br />Initial accuracy: .923<br />New accuracy: .963<br />Accuracy gain: .040",
+              "Effect size: 0.606<br />Initial accuracy: .923<br />New accuracy: .968<br />Accuracy gain: .046",
+              "Effect size: 0.707<br />Initial accuracy: .923<br />New accuracy: .973<br />Accuracy gain: .050",
+              "Effect size: 0.808<br />Initial accuracy: .923<br />New accuracy: .977<br />Accuracy gain: .055",
+              "Effect size: 0.909<br />Initial accuracy: .923<br />New accuracy: .981<br />Accuracy gain: .058",
+              "Effect size: 1.010<br />Initial accuracy: .923<br />New accuracy: .984<br />Accuracy gain: .061",
+              "Effect size: 1.111<br />Initial accuracy: .923<br />New accuracy: .987<br />Accuracy gain: .064",
+              "Effect size: 1.212<br />Initial accuracy: .923<br />New accuracy: .989<br />Accuracy gain: .066"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(95,95,95,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.922908",
+            "legendgroup": "0.922908",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              0,
+              0.100987099664353,
+              0.201974199328706,
+              0.302961298993059,
+              0.403948398657412,
+              0.504935498321765,
+              0.605922597986118,
+              0.706909697650471,
+              0.807896797314824,
+              0.908883896979177,
+              1.00987099664353,
+              1.11085809630788,
+              1.21184519597224
+            ],
+            "y": [
+              0.962912,
+              0.96844,
+              0.973304,
+              0.977488,
+              0.981176,
+              0.9843,
+              0.987,
+              0.989292,
+              0.99124,
+              0.992888,
+              0.994224,
+              0.995372,
+              0.996304
+            ],
+            "text": [
+              "Effect size: 0.000<br />Initial accuracy: .963<br />New accuracy: .963<br />Accuracy gain: .000",
+              "Effect size: 0.101<br />Initial accuracy: .963<br />New accuracy: .968<br />Accuracy gain: .006",
+              "Effect size: 0.202<br />Initial accuracy: .963<br />New accuracy: .973<br />Accuracy gain: .010",
+              "Effect size: 0.303<br />Initial accuracy: .963<br />New accuracy: .977<br />Accuracy gain: .015",
+              "Effect size: 0.404<br />Initial accuracy: .963<br />New accuracy: .981<br />Accuracy gain: .018",
+              "Effect size: 0.505<br />Initial accuracy: .963<br />New accuracy: .984<br />Accuracy gain: .021",
+              "Effect size: 0.606<br />Initial accuracy: .963<br />New accuracy: .987<br />Accuracy gain: .024",
+              "Effect size: 0.707<br />Initial accuracy: .963<br />New accuracy: .989<br />Accuracy gain: .026",
+              "Effect size: 0.808<br />Initial accuracy: .963<br />New accuracy: .991<br />Accuracy gain: .028",
+              "Effect size: 0.909<br />Initial accuracy: .963<br />New accuracy: .993<br />Accuracy gain: .030",
+              "Effect size: 1.010<br />Initial accuracy: .963<br />New accuracy: .994<br />Accuracy gain: .031",
+              "Effect size: 1.111<br />Initial accuracy: .963<br />New accuracy: .995<br />Accuracy gain: .032",
+              "Effect size: 1.212<br />Initial accuracy: .963<br />New accuracy: .996<br />Accuracy gain: .033"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 2.64566929133858,
+              "color": "rgba(0,0,0,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "name": "0.962912",
+            "legendgroup": "0.962912",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 22.3926940639269,
+            "r": 7.30593607305936,
+            "b": 38.7380655873807,
+            "l": 46.027397260274
+          },
+          "plot_bgcolor": "rgba(255,255,255,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(0,0,0,1)",
+            "family": "serif",
+            "size": 15.9402241594022
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -0.0605922597986118,
+              1.27243745577085
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75",
+              "1.00",
+              "1.25"
+            ],
+            "tickvals": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1,
+              1.25
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.00",
+              "0.25",
+              "0.50",
+              "0.75",
+              "1.00",
+              "1.25"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": false,
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              0.6207694,
+              1.0141866
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.7",
+              "0.8",
+              "0.9",
+              "1.0"
+            ],
+            "tickvals": [
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.7",
+              "0.8",
+              "0.9",
+              "1.0"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(51,51,51,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(77,77,77,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(230,230,230,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Accuracy: \"case 2\" vs. \"control\"",
+              "font": {
+                "color": "rgba(0,0,0,1)",
+                "family": "serif",
+                "size": 15.9402241594022
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": "transparent",
+              "line": {
+                "color": "rgba(51,51,51,1)",
+                "width": 0.66417600664176,
+                "linetype": "solid"
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(0,0,0,1)",
+              "family": "serif",
+              "size": 12.7521793275218
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "showSendToCloud": false,
+          "displaylogo": false,
+          "modeBarButtonsToRemove": [
+            "autoScale2d",
+            "pan2d",
+            "zoom2d",
+            "zoomIn2d",
+            "zoomOut2d"
+          ]
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.0.1",
+          "src": {
+            "href": "crosstalk-1.1.0.1"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.52.2"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.52.2",
+          "src": {
+            "href": "plotly-main-1.52.2"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "sd_feed": {
+      "html": "<p><b>Case SD:<\/b> 1<p/><p><b>Control SD:<\/b> 1<p/><p><b>Sample size:<\/b> 500<\/p>",
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
