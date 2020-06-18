@@ -7,3 +7,4 @@ Coming ...
 
 ### Support
 
+If you have any questions or find any issues (bugs, desired features), [write an email](mailto:lkcsgaspar@gmail.com) or [open a new issue](https://github.com/gasparl/esdi/issues "Issues").
