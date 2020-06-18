@@ -3,6 +3,11 @@ language: r
 sudo: false
 r: 3.4.1
 
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+
 # Install packrat if needed and have it restore packages.
 install:
   - R -e 'if (system.file(package="packrat") == "") install.packages("packrat")'
