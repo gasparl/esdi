@@ -3,6 +3,14 @@ language: r
 sudo: false
 r: release
 
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
+      - libgdal-dev
+      - libproj-dev
+      - libmpfr-dev
+
 cache:
   # Main R library
   packages: true
@@ -25,8 +33,3 @@ before_install:
 
 script:
   - R -f run_tests.R
-
-addons:
-  apt:
-    packages:
-    - libcurl4-openssl-dev
