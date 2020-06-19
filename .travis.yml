@@ -1,4 +1,3 @@
-dist: xenial
 language: r
 sudo: false
 r: release
