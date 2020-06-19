@@ -5,5 +5,3 @@ Imports:
   ggplot2,
   plotly,
   neatStats
-Remotes:
-  cran/mnormt

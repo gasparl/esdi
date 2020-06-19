@@ -1,7 +1,7 @@
 dist: trusty   # Use Ubuntu 14.04 image (instead of 12.04)
 language: r
 sudo: false
-r: 3.6.0
+r: 4.0.0
 
 cache:
   # Main R library
