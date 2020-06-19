@@ -3,6 +3,9 @@ language: r
 sudo: false
 r: release
 
+r_binary_packages:
+  - gsl
+
 cache:
   # Main R library
   packages: true
@@ -25,9 +28,8 @@ before_install:
 
 script:
   - R -f run_tests.R
-addons:
-  apt:
-    packages:
-    - libcurl4-openssl-dev
-    - libxml2-dev
-    - libgsl0-dev
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
