@@ -1,7 +1,7 @@
 dist: trusty   # Use Ubuntu 14.04 image (instead of 12.04)
 language: r
 sudo: false
-r: 4.0.0
+r: release
 
 cache:
   # Main R library
@@ -25,3 +25,9 @@ before_install:
 
 script:
   - R -f run_tests.R
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+    - libxml2-dev
+    - libgsl0-dev
