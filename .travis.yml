@@ -3,13 +3,9 @@ language: r
 sudo: false
 r: release
 
-addons:
-  apt:
-    packages:
-      - libudunits2-dev
-      - libgdal-dev
-      - libproj-dev
-      - libmpfr-dev
+apt_packages:
+  - libgdal-dev
+  - libudunits2-dev
 
 cache:
   # Main R library
@@ -33,3 +29,8 @@ before_install:
 
 script:
   - R -f run_tests.R
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
