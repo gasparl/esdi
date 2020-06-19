@@ -2,9 +2,7 @@ dist: trusty   # Use Ubuntu 14.04 image (instead of 12.04)
 language: r
 sudo: false
 r: release
-
-r_binary_packages:
-  - gsl
+sudo: required
 
 cache:
   # Main R library
@@ -12,6 +10,9 @@ cache:
   directories:
     # PhantomJS
     - travis_phantomjs
+
+r_binary_packages:
+  - gsl
 
 # Install PhantomJS (if not cached)
 before_install:
