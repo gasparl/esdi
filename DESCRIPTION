@@ -1,7 +1,0 @@
-Imports:
-  shiny,
-  shinythemes,
-  shinycssloaders,
-  ggplot2,
-  plotly,
-  neatStats
