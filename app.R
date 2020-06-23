@@ -294,6 +294,9 @@ ui <- fluidPage(
     theme = shinytheme("darkly"),
     tags$head(tags$style(
         HTML(
+            "<title>ESDI</title> <link rel='icon' type='image/png' href='/lgo.png'>"
+        ),
+        HTML(
             ".form-control { height:auto; padding:3px 15px;}
             .col-sm-8 .tabbable {margin-right:10px; margin-bottom:10px;}
             .well {padding:5px 19px 19px 19px;}"
@@ -308,12 +311,14 @@ ui <- fluidPage(
                 splitLayout(
                     numericInput("sd_g", "Case SD", 1, min = 0),
                     numericInput("sd_i", "Control SD", 1, min = 0),
-                    numericInput("N",
-                                 "Sample size",
-                                 500,
-                                 min = 100,
-                                 max = 30000,
-                                 step = 1)
+                    numericInput(
+                        "N",
+                        "Sample size",
+                        500,
+                        min = 100,
+                        max = 30000,
+                        step = 1
+                    )
                 ),
                 p(strong(
                     'Initial effect sizes of "case 1" vs. "control":'
@@ -379,8 +384,15 @@ ui <- fluidPage(
                 actionButton("replot", "UPDATE PLOTS", class = "btn btn-primary")
             )
         ),
-        tabPanel("Info", # perhaps elsewhere, perhaps with some link button or whatever
-                 hr())),
+        hr(),
+        em(p(
+            'For information see ',
+            tags$a(
+                'https://github.com/gasparl/esdi',
+                href = "https://github.com/gasparl/esdi",
+                target = "_blank"
+            ), 
+        ))),
         mainPanel(tabsetPanel(
             tabPanel("Plots",
                      fluidRow(
