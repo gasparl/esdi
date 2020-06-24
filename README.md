@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/259343553.svg)](https://zenodo.org/badge/latestdoi/259343553)
+
 ### ESDI: Effect Sizes versus DIagnostics
 
 Using simulations for the given input values, this Shiny R application shows how diagnostic efficency (as measured by rates of correct detection or areas under the curves) changes in relation to standardized mean difference (_SMD_) effect size differences between single-condition cases (when these are directly compared for lack of controls).
