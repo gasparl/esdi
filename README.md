@@ -74,7 +74,7 @@ By default, simple rates of correct detection (number of all correctly classifie
 
 ### Testing
 
-The basic functionality of the software can be verified using the `shinytest` package to run an automated test suit (e.g. after making contributions). Just run `shinytest::recordTest("/path/to/directory/")` – where `"/path/to/directory/"` should be replaced with the path to the applications directory, e.g. `"C"/apps/esdi/"`.
+The basic functionality of the software can be verified using the `shinytest` package to run an automated test suit (e.g. after making contributions). Just run `shinytest::recordTest("/path/to/directory/")` – where `"/path/to/directory/"` should be replaced with the path to the applications directory, e.g. `"C:/apps/esdi/"`.
 
 ### Support
 
