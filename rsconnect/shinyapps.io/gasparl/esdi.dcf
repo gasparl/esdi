@@ -5,8 +5,8 @@ account: gasparl
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2472146
-bundleId: 3287152
+bundleId: 3309917
 url: https://gasparl.shinyapps.io/esdi/
-when: 1592483166.92864
+when: 1592981576.14526
 asMultiple: FALSE
 asStatic: FALSE
