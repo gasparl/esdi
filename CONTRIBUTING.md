@@ -11,28 +11,6 @@ Contributions are always welcome. When contributing to this repository, please f
 5. Ensure the application is working correctly. The `shinytest::testApp()` function should pass without unexpected issues (see _Testing_ under [README.md](https://github.com/gasparl/esdi/blob/master/README.md "README").
 6. Issue that pull request.
 
-## Code of Conduct
-
-Examples of behavior that contributes to creating a positive environment
-include:
-
-* Using welcoming language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
-
-Examples of unacceptable behavior by participants include:
-
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
-
 ## License
 
 By contributing to this repository, you agree that your contributions will be licensed under its BSD-2-Clause License.
