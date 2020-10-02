@@ -88,7 +88,9 @@ Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulati
 
 Lakens, D., Scheel, A. M., & Isager, P. M. (2018). Equivalence Testing for Psychological Research: A Tutorial. Advances in Methods and Practices in Psychological Science, 1(2), 259–269. https://doi.org/10.1177/2515245918770963
 
-Lukács, G., & Specker, E. (2020). Dispersion Matters: Evaluation Procedures and Control Data Computer Simulation in Concealed Information Test Studies. Manuscript submitted.
-
 Perugini, M., Gallucci, M., & Costantini, G. (2018). A Practical Primer To Power Analysis for Simple Experimental Designs. International Review of Social Psychology, 31(1), 20. https://doi.org/10.5334/irsp.181
+
+**Cite this software as:**
+
+Lukács, G., & Specker, E. (2020). Dispersion matters: Diagnostics and control data computer simulation in Concealed Information Test studies. _PLOS ONE, 15_(10), e0240259. https://doi.org/10.1371/journal.pone.0240259
 
